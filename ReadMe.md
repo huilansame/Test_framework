@@ -4,3 +4,4 @@
 - selenium 2.53
 - PyYaml
 - xlrd
+- requests

@@ -128,9 +128,9 @@ if __name__ == '__main__':
     with open(report, 'wb') as f:
         runner = HTMLTestRunner(f, verbosity=2, title='从0搭建测试框架 灰蓝', description='修改html报告')
         runner.run(TestBaiDu('test_search'))
-    e = Email(title='百度搜素测试报告',
+    e = Email(title='百度搜索测试报告',
               message='这是今天的测试报告，请查收！',
-              receiver='396214358@qq.com',
+              receiver='...',
               server='...',
               sender='...',
               password='...',
@@ -139,4 +139,10 @@ if __name__ == '__main__':
     e.send()
 ```
 
-执行完成之后可以看到receiver收到了我们的报告。
+执行完成之后可以看到receiver收到了我们的报告。当然，在这块你有可能遇到很多问题，可以根据错误号去网上查询[如网易帮助](http://help.163.com/09/1224/17/5RAJ4LMH00753VB8.html)。一般有几种常见的错误：
+
+1. 账户密码出错
+2. 服务器sever出错，这个可以根据你的发送人的邮箱去网站或邮箱设置中查看到
+3. 邮箱没有开通smtp服务，一般在邮箱设置中
+4. 邮件被拦截，在title、message以及发送的文件中不要带明显乱码、广告倾向的字符
+5. sender跟loginuser不一致的问题，发送人必须是登录用户
