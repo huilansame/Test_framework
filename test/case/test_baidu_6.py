@@ -6,7 +6,7 @@ from utils.file_reader import ExcelReader
 from utils.HTMLTestRunner import HTMLTestRunner
 from utils.mail import Email
 from test.page.baidu_result_page import BaiDuMainPage, BaiDuResultPage
-
+import sys
 
 class TestBaiDu(unittest.TestCase):
     URL = Config().get('URL')

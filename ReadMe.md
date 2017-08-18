@@ -5,3 +5,5 @@
 - PyYaml
 - xlrd
 - requests
+- JMESPath
+- Faker

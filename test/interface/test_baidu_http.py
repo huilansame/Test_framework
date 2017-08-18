@@ -3,6 +3,7 @@ from utils.config import Config, REPORT_PATH
 from utils.client import HTTPClient
 from utils.log import logger
 from utils.HTMLTestRunner import HTMLTestRunner
+from utils.assertion import assertHTTPCode
 
 
 class TestBaiDuHTTP(unittest.TestCase):
@@ -14,6 +15,7 @@ class TestBaiDuHTTP(unittest.TestCase):
     def test_baidu_http(self):
         res = self.client.send()
         logger.debug(res.text)
+        assertHTTPCode(res, [400])
         self.assertIn('百度一下，你就知道', res.text)
 
 
