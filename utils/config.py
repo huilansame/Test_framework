@@ -14,6 +14,9 @@ class Config:
         self.config = YamlReader(config).data
 
     def get(self, element, index=0):
+        """
+        yaml是可以通过'---'分节的。所以读取之后yaml是一个大list，第一项
+        """
         return self.config[index].get(element)
 
 
