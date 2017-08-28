@@ -5,6 +5,9 @@
 在utils中创建mail.py，初始化时传入全部所需数据，message是正文，可不填，path可以传list或者str；receiver支持多人，用";"隔开就行
 
 ```python
+"""
+邮件类。用来给指定用户发送邮件。可指定多个收件人，可带附件。
+"""
 import re
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -64,20 +67,21 @@ class Email:
 
         # 连接服务器并发送
         try:
-            smtp_server = smtplib.SMTP(self.server)
+            smtp_server = smtplib.SMTP(self.server)  # 连接sever
         except (gaierror and error) as e:
             logger.exception('发送邮件失败,无法连接到SMTP服务器，检查网络以及SMTP服务器. %s', e)
         else:
             try:
-                smtp_server.login(self.sender, self.password)
+                smtp_server.login(self.sender, self.password)  # 登录
             except smtplib.SMTPAuthenticationError as e:
                 logger.exception('用户名密码验证失败！%s', e)
             else:
-                smtp_server.sendmail(self.sender, self.receiver.split(';'), self.msg.as_string())
+                smtp_server.sendmail(self.sender, self.receiver.split(';'), self.msg.as_string())  # 发送邮件
             finally:
-                smtp_server.quit()
+                smtp_server.quit()  # 断开连接
                 logger.info('发送邮件"{0}"成功! 收件人：{1}。如果没有收到邮件，请检查垃圾箱，'
                             '同时检查收件人地址是否正确'.format(self.title, self.receiver))
+
 ```
 
 之后我们修改用例文件，执行完成后发送邮件：
@@ -146,3 +150,5 @@ if __name__ == '__main__':
 3. 邮箱没有开通smtp服务，一般在邮箱设置中
 4. 邮件被拦截，在title、message以及发送的文件中不要带明显乱码、广告倾向的字符
 5. sender跟loginuser不一致的问题，发送人必须是登录用户
+
+> 所有的代码我都放到了GITHUB上[传送](https://github.com/huilansame/Test_framework)，可以自己下载去学习，有什么好的建议或者问题，可以留言或者加我的[QQ群:455478219](https://jq.qq.com/?_wv=1027&k=4EQQKFg)讨论。

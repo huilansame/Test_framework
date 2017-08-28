@@ -1,3 +1,6 @@
+"""
+邮件类。用来给指定用户发送邮件。可指定多个收件人，可带附件。
+"""
 import re
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -57,18 +60,18 @@ class Email:
 
         # 连接服务器并发送
         try:
-            smtp_server = smtplib.SMTP(self.server)
+            smtp_server = smtplib.SMTP(self.server)  # 连接sever
         except (gaierror and error) as e:
             logger.exception('发送邮件失败,无法连接到SMTP服务器，检查网络以及SMTP服务器. %s', e)
         else:
             try:
-                smtp_server.login(self.sender, self.password)
+                smtp_server.login(self.sender, self.password)  # 登录
             except smtplib.SMTPAuthenticationError as e:
                 logger.exception('用户名密码验证失败！%s', e)
             else:
-                smtp_server.sendmail(self.sender, self.receiver.split(';'), self.msg.as_string())
+                smtp_server.sendmail(self.sender, self.receiver.split(';'), self.msg.as_string())  # 发送邮件
             finally:
-                smtp_server.quit()
+                smtp_server.quit()  # 断开连接
                 logger.info('发送邮件"{0}"成功! 收件人：{1}。如果没有收到邮件，请检查垃圾箱，'
                             '同时检查收件人地址是否正确'.format(self.title, self.receiver))
 

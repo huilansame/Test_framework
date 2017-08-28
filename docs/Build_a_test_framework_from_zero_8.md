@@ -5,10 +5,16 @@
 这里我们简单封装一个断言，在utils中创建assertion.py文件，在其中创建断言：
 
 ```python
+"""
+在这里添加各种自定义的断言，断言失败抛出AssertionError就OK。
+"""
+
+
 def assertHTTPCode(response, code_list=[200]):
     res_code = response.status_code
     if res_code not in code_list:
-        raise AssertionError('响应code不在列表中！')
+        raise AssertionError('响应code不在列表中！')  # 抛出AssertionError，unittest会自动判别为用例Failure，不是Error
+
 ```
 
 这个断言传入响应，以及期望的响应码列表，如果响应码不在列表中，则断言失败。

@@ -46,8 +46,7 @@ def random_str(min_chars=0, max_chars=8):
 
 
 def factory_generate_ids(starting_id=1, increment=1):
-    """ Return function generator for ids starting at starting_id
-        Note: needs to be called with () to make generator """
+    """ 返回一个生成器函数，调用这个函数产生生成器，从starting_id开始，步长为increment。 """
     def generate_started_ids():
         val = starting_id
         local_increment = increment
@@ -58,8 +57,7 @@ def factory_generate_ids(starting_id=1, increment=1):
 
 
 def factory_choice_generator(values):
-    """ Return a generator that picks values from a list randomly """
-
+    """ 返回一个生成器函数，调用这个函数产生生成器，从给定的list中随机取一项。 """
     def choice_generator():
         my_list = list(values)
         rand = random.Random()
@@ -68,26 +66,22 @@ def factory_choice_generator(values):
     return choice_generator
 
 
-# 下面是一些示例：
 if __name__ == '__main__':
-    # 生成一些随机信息
     print(random_phone_number())
     print(random_name())
     print(random_address())
     print(random_email())
     print(random_ipv4())
     print(random_str(min_chars=6, max_chars=8))
-
-    # 生成偶数id生成器
     id_gen = factory_generate_ids(starting_id=0, increment=2)()
     for i in range(5):
         print(next(id_gen))
 
-    # 生成随机选择器
     choices = ['John', 'Sam', 'Lily', 'Rose']
     choice_gen = factory_choice_generator(choices)()
     for i in range(5):
         print(next(choice_gen))
+
 ```
 
 你还可以添加各种各样的生成器，比如指定长度中文、英文、特殊字符的字符串，指定格式的json串等等，可以省去很多构造测试数据的烦恼。

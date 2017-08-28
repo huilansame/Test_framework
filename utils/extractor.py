@@ -4,28 +4,13 @@ import json
 import jmespath
 
 
-class AbstractExtractor(object):
-    """ Basic extractor, you only need to implement full_extract """
-
-    extractor_type = None
-
-    def extract(self):
-        pass
-
-
-class JMESPathExtractor(AbstractExtractor):
-    """ Extractor that uses JMESPath syntax
-        See http://jmespath.org/specification.html for details
+class JMESPathExtractor(object):
     """
-    extractor_type = 'jmespath'
-
+    用JMESPath实现的抽取器，对于json格式数据实现简单方式的抽取。
+    """
     def extract(self, query=None, body=None):
-        if isinstance(body, bytes):
-            body = str(body, 'utf-8')
-
         try:
-            res = jmespath.search(query, json.loads(body))  # Better way
-            return res
+            return jmespath.search(query, json.loads(body))
         except Exception as e:
             raise ValueError("Invalid query: " + query + " : " + str(e))
 
@@ -52,9 +37,9 @@ if __name__ == '__main__':
     #          "type": "雷阵雨"}
     #     ],
     #     "ganmao": "各项气象条件适宜，无明显降温过程，发生感冒机率较低。", "wendu": "25"
-    # },
-    #     "status": 1000,
-    #     "desc": "OK"}
+    #  },
+    # "status": 1000,
+    # "desc": "OK"}
 
     j = JMESPathExtractor()
     j_1 = j.extract(query='data.forecast[1].date', body=res.text)

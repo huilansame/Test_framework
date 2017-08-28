@@ -97,28 +97,32 @@ import os
 
 
 class YamlReader:
-    def __init__(self, yaml):
-        if os.path.exists(yaml):
-            self.yaml = yaml
+    def __init__(self, yamlf):
+        if os.path.exists(yamlf):
+            self.yamlf = yamlf
         else:
             raise FileNotFoundError('文件不存在！')
         self._data = None
 
     @property
     def data(self):
-        if self._data:
-            return self._data
-        else:
-            with open(self.yaml, 'rb') as f:
-                return list(yaml.safe_load_all(f))
+        # 如果是第一次调用data，读取yaml文档，否则直接返回之前保存的数据
+        if not self._data:
+            with open(self.yamlf, 'rb') as f:
+                self._data = list(yaml.safe_load_all(f))  # load后是个generator，用list组织成列表
+        return self._data
 ```
 
 而且我们需要一个Config类来读取配置，config.py：
 
 ```python
+"""
+读取配置。这里配置文件用的yaml，也可用其他如XML,INI等，需在file_reader中添加相应的Reader进行处理。
+"""
 import os
 from utils.file_reader import YamlReader
 
+# 通过当前文件的绝对路径，其父级目录一定是框架的base目录，然后确定各层的绝对路径。如果你的结构不同，可自行修改。
 BASE_PATH = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '\..')
 CONFIG_FILE = BASE_PATH + '\config\config.yml'
 DATA_PATH = BASE_PATH + '\data\\'
@@ -132,6 +136,10 @@ class Config:
         self.config = YamlReader(config).data
 
     def get(self, element, index=0):
+        """
+        yaml是可以通过'---'分节的。用YamlReader读取返回的是一个list，第一项是默认的节，如果有多个节，可以传入index来获取。
+        这样我们其实可以把框架相关的配置放在默认节，其他的关于项目的配置放在其他节中。可以在框架中实现多个项目的测试。
+        """
         return self.config[index].get(element)
 ```
 
@@ -181,3 +189,5 @@ if __name__ == '__main__':
 ```
 
 我们已经把配置分离出来了，虽然现在看起来似乎很麻烦，但是想想如果你有50个用例文件甚至更多，一旦项目URL变了，你还要一个个去修改吗？
+
+> 所有的代码我都放到了GITHUB上[传送](https://github.com/huilansame/Test_framework)，可以自己下载去学习，有什么好的建议或者问题，可以留言或者加我的[QQ群:455478219](https://jq.qq.com/?_wv=1027&k=4EQQKFg)讨论。
