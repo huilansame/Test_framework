@@ -5,12 +5,12 @@ import os
 from utils.file_reader import YamlReader
 
 # 通过当前文件的绝对路径，其父级目录一定是框架的base目录，然后确定各层的绝对路径。如果你的结构不同，可自行修改。
-BASE_PATH = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '\..')
-CONFIG_FILE = BASE_PATH + '\config\config.yml'
-DATA_PATH = BASE_PATH + '\data\\'
-DRIVER_PATH = BASE_PATH + '\drivers\\'
-LOG_PATH = BASE_PATH + '\log\\'
-REPORT_PATH = BASE_PATH + '\\report\\'
+BASE_PATH = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
+CONFIG_FILE = os.path.join(BASE_PATH, 'config', 'config.yml')
+DATA_PATH = os.path.join(BASE_PATH, 'data')
+DRIVER_PATH = os.path.join(BASE_PATH, 'drivers')
+LOG_PATH = os.path.join(BASE_PATH, 'log')
+REPORT_PATH = os.path.join(BASE_PATH, 'report')
 
 
 class Config:

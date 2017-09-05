@@ -125,6 +125,7 @@ log:
 from utils.log import logger
 logger.info('test log')
 """
+import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from utils.config import LOG_PATH, Config
@@ -156,7 +157,7 @@ class Logger(object):
             self.logger.addHandler(console_handler)
 
             # 每天重新创建一个日志文件，最多保留backup_count份
-            file_handler = TimedRotatingFileHandler(filename=LOG_PATH + self.log_file_name,
+            file_handler = TimedRotatingFileHandler(filename=os.path.join(LOG_PATH, self.log_file_name),
                                                     when='D',
                                                     interval=1,
                                                     backupCount=self.backup_count,
