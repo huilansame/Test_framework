@@ -1,3 +1,80 @@
-2017-08-28 09:55:15,973 - framework - DEBUG - GET http://wthrcdn.etouch.cn/weather_mini?citykey=101010100
-2017-08-28 09:55:15,974 - framework - DEBUG - 请求成功: <Response [200]>
-{"data":{"yesterday":{"date":"27日星期日","high":"高温 18℃","fx":"东风","low":"低温 17℃","fl":"<![CDATA[<3级]]>","type":"阵雨"},"city":"北京","aqi":"45","forecast":[{"date":"28日星期一","high":"高温 28℃","fengli":"<![CDATA[<3级]]>","low":"低温 17℃","fengxiang":"东北风","type":"多云"},{"date":"29日星期二","high":"高温 25℃","fengli":"<![CDATA[<3级]]>","low":"低温 16℃","fengxiang":"西南风","type":"多云"},{"date":"30日星期三","high":"高温 27℃","fengli":"<![CDATA[<3级]]>","low":"低温 18℃","fengxiang":"西南风","type":"多云"},{"date":"31日星期四","high":"高温 27℃","fengli":"<![CDATA[<3级]]>","low":"低温 18℃","fengxiang":"北风","type":"多云"},{"date":"1日星期五","high":"高温 26℃","fengli":"<![CDATA[<3级]]>","low":"低温 19℃","fengxiang":"西南风","type":"阴"}],"ganmao":"各项气象条件适宜，无明显降温过程，发生感冒机率较低。","wendu":"20"},"status":1000,"desc":"OK"}
+2017-09-20 15:27:13,496 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:27:13,496 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 15:27:13,516 - framework - DEBUG - TCPClient received 
+2017-09-20 15:27:13,517 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:28:13,352 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:28:13,353 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 15:28:13,355 - framework - DEBUG - TCPClient received 
+2017-09-20 15:28:13,355 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:28:45,357 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:28:45,357 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 15:28:45,357 - framework - DEBUG - TCPClient received {"action": "add", "result": 3.000000}
+2017-09-20 15:28:45,357 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:29:28,424 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:29:28,424 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 15:29:28,424 - framework - DEBUG - TCPClient received {"action": "add", "result": 3}
+2017-09-20 15:29:28,425 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:29:41,987 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:29:41,988 - framework - DEBUG - TCPClient Send {"action": "xx", "params": {"a": 1, "b": 2}}
+2017-09-20 15:29:41,988 - framework - DEBUG - TCPClient received {"code":-2, "message":"Wrong Action"}
+2017-09-20 15:29:41,988 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:30:01,818 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:30:01,819 - framework - DEBUG - TCPClient Send "zz"
+2017-09-20 15:30:01,821 - framework - DEBUG - TCPClient received 
+2017-09-20 15:30:01,822 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:31:36,220 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:31:36,220 - framework - DEBUG - TCPClient Send "zz"
+2017-09-20 15:31:36,223 - framework - DEBUG - TCPClient received 
+2017-09-20 15:31:36,223 - framework - DEBUG - TCPClient closed.
+2017-09-20 15:34:36,095 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 15:34:36,096 - framework - DEBUG - TCPClient Send "zz"
+2017-09-20 15:34:36,096 - framework - DEBUG - TCPClient received {"code":-1, "message":"Data Error"}
+2017-09-20 15:34:36,096 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:12:24,712 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:12:24,713 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 16:12:24,713 - framework - DEBUG - TCPClient received {"action": "add", "result": 3}
+2017-09-20 16:12:24,713 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:12:24,716 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:12:24,716 - framework - DEBUG - TCPClient Send {"action": "sub", "params": {"a": 1, "b": 2}}
+2017-09-20 16:12:24,716 - framework - DEBUG - TCPClient received {"action": "sub", "result": -1}
+2017-09-20 16:12:24,717 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:12:24,720 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:12:24,721 - framework - DEBUG - TCPClient Send xxxxx
+2017-09-20 16:12:24,721 - framework - DEBUG - TCPClient received {"code":-1, "message":"Data Error"}
+2017-09-20 16:12:24,722 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:20,553 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:20,553 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 16:13:20,553 - framework - DEBUG - TCPClient received {"action": "add", "result": 3}
+2017-09-20 16:13:20,554 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:20,568 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:20,568 - framework - DEBUG - TCPClient Send {"action": "sub", "params": {"a": 1, "b": 2}}
+2017-09-20 16:13:20,568 - framework - DEBUG - TCPClient received {"action": "sub", "result": -1}
+2017-09-20 16:13:20,568 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:20,571 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:20,571 - framework - DEBUG - TCPClient Send xxxxx
+2017-09-20 16:13:20,571 - framework - DEBUG - TCPClient received {"code":-1, "message":"Data Error"}
+2017-09-20 16:13:20,571 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:43,687 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:43,688 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 16:13:43,688 - framework - DEBUG - TCPClient received {"action": "add", "result": 3}
+2017-09-20 16:13:43,688 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:43,691 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:43,691 - framework - DEBUG - TCPClient Send {"action": "sub", "params": {"a": 1, "b": 2}}
+2017-09-20 16:13:43,691 - framework - DEBUG - TCPClient received {"code":-2, "message":"Wrong Action"}
+2017-09-20 16:13:43,691 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:43,693 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:43,694 - framework - DEBUG - TCPClient Send xxxxx
+2017-09-20 16:13:43,694 - framework - DEBUG - TCPClient received {"code":-1, "message":"Data Error"}
+2017-09-20 16:13:43,694 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:59,788 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:59,788 - framework - DEBUG - TCPClient Send {"action": "add", "params": {"a": 1, "b": 2}}
+2017-09-20 16:13:59,788 - framework - DEBUG - TCPClient received {"action": "add", "result": 3}
+2017-09-20 16:13:59,788 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:59,791 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:59,791 - framework - DEBUG - TCPClient Send {"action": "sub", "params": {"a": 1, "b": 2}}
+2017-09-20 16:13:59,791 - framework - DEBUG - TCPClient received {"code":-2, "message":"Wrong Action"}
+2017-09-20 16:13:59,791 - framework - DEBUG - TCPClient closed.
+2017-09-20 16:13:59,793 - framework - DEBUG - TCPClient connect to 127.0.0.1:8080 success.
+2017-09-20 16:13:59,794 - framework - DEBUG - TCPClient Send xxxxx
+2017-09-20 16:13:59,794 - framework - DEBUG - TCPClient received {"code":-1, "message":"Data Error"}
+2017-09-20 16:13:59,794 - framework - DEBUG - TCPClient closed.

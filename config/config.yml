@@ -5,3 +5,6 @@ log:
     console_level: WARNING
     file_level: DEBUG
     pattern: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+ip: 127.0.0.1
+port: 8080
